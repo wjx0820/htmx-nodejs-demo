@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>HTMX Crash Course</title>
+    <script>
+      // 生成一个唯一的客户端ID
+      const clientId = Math.random().toString(36).substring(2, 15);
+    </script>
+  </head>
+  <body>
+    <div class="text-center">
+      <!-- hx-vals用js前缀插入js变量 -->
+      <span hx-get="/poll" hx-trigger="every 1s" hx-vals='js:{clientId: clientId}'>Loading...</span>
+    </div>
+  </body>
+</html>
